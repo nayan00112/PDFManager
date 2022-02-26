@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Base {% endblock title %}</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class='bg-cyan-50 font-normal'>
+   
+<nav clas=" ">
+    <ul class="bg-cyan-900 border-transparent rounded font-sans text-white my-2 py-3 mx-auto flex">
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block active %}{% endblock active %}"><a href="/">Home</a></li>
+        {% if user.is_authenticated %}
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="Physics">Physics</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="Mathematics_1">Methematics-1</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="BME">BME</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="ES">ES</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="Other">Other</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="/accounts/logout">Logout</a></li>
+        {% else %}
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block active_signin %}{% endblock active_signin %}"><a href="/accounts/signin">Sigin</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block active_signup %}{% endblock active_signup %}"><a href="/accounts/signup">Signup</a></li>
+        {% endif %}
+    </ul>
+</nav>
+<div class='mx-3'>
+{% block body %}
+{% endblock body %}
+</div>
+</body>
+</html>

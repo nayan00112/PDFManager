@@ -1,0 +1,30 @@
+{% extends 'Base.html' %}
+
+{% block title %}Signup{% endblock title %}
+{% block active_signup %}bg-sky-800{% endblock active_signup %}
+{% block body %}
+<div style="margin: auto; padding:10px;" class="box-border bg-sky-300 shadow-md w-64 p-4 border-1">
+    <H1><B>Signup</B></H1>
+</div>
+<div style="margin: auto; padding:10px;" class="box-border bg-sky-200 shadow-md w-64 p-4 border-1">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="flex flex-wrap">
+                <div>Name = <input type="text" name="name"></div>
+                <div>Username = <input type="text" name="username"></div>
+                <div>Email = <input type="email" name="email"></div>
+                <div>Password = <input type="password" name="password1"></div>
+                <div>Conform Password = <input type="password" name="password2"></div>
+                <div><input type="submit" style="margin-top:6px; padding:5px;" class="rounded bg-sky-300 hover:bg-sky-400" value="Submit"></div>
+            </div>
+        </form>
+    </div>
+    {% if messages %}
+    <div style="margin: auto; padding:10px;" class="box-border bg-rose-100 shadow-md w-64 p-4 border-1">
+        {% for m in messages %}
+        {{m}}
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock body %}

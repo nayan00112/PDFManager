@@ -1,0 +1,29 @@
+{% extends 'Base.html' %}
+{% block title %}Subjects{% endblock title %}
+{% block body %}
+
+
+<div style="margin: auto; padding:10px;" class="box-border bg-sky-100 shadow-md border-1">
+<table cellpadding="10px" class="font-extralight">
+<tr class="font-semibold">
+  <td>Title</td>
+  <td>Subject</td>
+  <td>Date</td>
+  <td>Discription</td>
+  <td>PDF Link</td>
+  </tr>
+  {% if data %}
+{% for data in data %}
+
+<tr>
+    <td>{{data.title}}</td>
+    <td>{{data.subject}}</td>
+    <td>{{data.date}}</td>
+    <td>{{data.discription}}</td>
+    <td><a href="{{data.pdf_document.url}}" target="_blank" class="m-2 py-1 px-2 rounded bg-sky-200 hover:bg-sky-400">PDF</a></td>
+</tr>
+{% endfor %}
+{% endif %}
+</table>
+</div>
+{% endblock body %}
