@@ -20,16 +20,18 @@ def Home(request):
         data.save()
         sucess_message = 'Successfully saved ' + title
         messages.info(request, sucess_message)
-
     else:
         fm = Sub_Input()
     return render(request, 'Home/Home.html', {'fm':fm})
 
+def AllSub(request):
+    data = Subject_MOdel_Class.objects.all()
+    return render(request, 'Home/subjects.html', {'data': data})
 def Physics(request):
     data = Subject_MOdel_Class.objects.filter(subject='physics')
     return render(request, 'Home/subjects.html', {'data': data})
 def Mathematics_1(request):
-    data = Subject_MOdel_Class.objects.filter(subject='mathematic')
+    data = Subject_MOdel_Class.objects.filter(subject='mathematic_1')
     return render(request, 'Home/subjects.html', {'data': data})
 def BME(request):
     data = Subject_MOdel_Class.objects.filter(subject='bme')

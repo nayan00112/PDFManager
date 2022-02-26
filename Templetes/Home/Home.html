@@ -1,20 +1,16 @@
 {% extends 'Base.html' %}
+
 {% block title %}PDFManager{% endblock title %}
+
 {% block active %}bg-sky-800{% endblock active %}
+
 {% block body %}
 
 {% if user.is_authenticated %}
-{% if messages %}
-<ul>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
 
 <div>
   <div class="text-center font-semibold">Uplode PDF Document</div>
-  <form action="/" method="POST" enctype='multipart/form-data'>
+  <form action="/Home" method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     <table class="mx-auto my-3 py-2">
       <tbody>
@@ -26,7 +22,7 @@
         <tr class="my-1">
           <td class="">{{fm.subject.label}}</td>
           <td class="text-center"> : </td>
-          <td class="">{{fm.subject.label}}</td>
+          <td class="">{{fm.subject}}</td>
         </tr>
         <tr class="my-1">
           <td class="">{{fm.pdf_document.label}}</td>
@@ -57,7 +53,18 @@
   </form>
 </div>
 
+<div class="text-center text-green-600 font-normal">
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+</div>
+
 {% else %}
+
 <div class="text-center font-thin">
   You need to Signin for uplode pdf or view your pdf.
 </div clas="my-2">
@@ -73,8 +80,7 @@
   </div>
   <div></div>
 </div>
+
 {% endif %}
-
-
 
 {% endblock body %}
