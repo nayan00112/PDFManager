@@ -11,15 +11,15 @@
 <body class='bg-cyan-50 font-normal'>
    
 <nav clas=" ">
-    <ul class="bg-cyan-900 border-transparent rounded font-sans text-white my-2 py-3 mx-auto flex">
+    <ul class="bg-cyan-900 border-transparent rounded font-sans text-white my-2 py-3 mx-2 flex">
         <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block active %}{% endblock active %}"><a href="/Home">Home</a></li>
         {% if user.is_authenticated %}
-        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="AllSub">All_Sub</a></li>
-        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="Physics">Physics</a></li>
-        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="Mathematics_1">Methematics-1</a></li>
-        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="BME">BME</a></li>
-        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="ES">ES</a></li>
-        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700"><a href="Other">Other</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block Alls %}{% endblock Alls %} "><a href="AllSub">All_Sub</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block phy %}{% endblock phy %}"><a href="Physics">Physics</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block math %}{% endblock math %}"><a href="Mathematics_1">Mathematics-1</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block bme %}{% endblock bme %}"><a href="BME">BME</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block es %}{% endblock es %}"><a href="ES">ES</a></li>
+        <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block other %}{% endblock other %}"><a href="Other">Other</a></li>
         <li class="mx-4 rounded py-1 px-1 hover:bg-red-400"><a href="/accounts/logout">Logout</a></li>
         {% else %}
         <li class="mx-4 rounded py-1 px-1 hover:bg-sky-700 {% block active_signin %}{% endblock active_signin %}"><a href="/accounts/signin">Sigin</a></li>

@@ -1,5 +1,26 @@
 {% extends 'Base.html' %}
 {% block title %}Subjects{% endblock title %}
+
+{% if Alls %}
+{% block Alls %}{{Alls}}{% endblock Alls %}
+{% endif %}
+{% if phy %}
+{% block phy %}{{phy}}{% endblock phy %}
+{% endif %}
+{% if math %}
+{% block math %}{{math}}{% endblock math %}
+{% endif %}
+{% if bme %}
+{% block bme %}{{bme}}{% endblock bme %}
+{% endif %}
+{% if es %}
+{% block es %}{{es}}{% endblock es %}
+{% endif %}
+{% if other %}
+{% block other %}{{other}}{% endblock other %}
+{% endif %}
+
+
 {% block body %}
 <div style="margin: auto; padding:10px;" class="box-border bg-sky-100 shadow-md border-1">
 <table cellpadding="10px" class="font-extralight">

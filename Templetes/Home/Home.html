@@ -2,17 +2,17 @@
 
 {% block title %}PDFManager{% endblock title %}
 
-{% block active %}bg-sky-800{% endblock active %}
+{% block active %}bg-sky-500{% endblock active %}
 
 {% block body %}
 
 {% if user.is_authenticated %}
 
-<div>
+<div class="mx-auto p-2 my-2 border bg-sky-100">
   <div class="text-center font-semibold">Uplode PDF Document</div>
   <form action="/Home" method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
-    <table class="mx-auto my-3 py-2">
+    <table class="mx-auto my-3 p-3">
       <tbody>
         <tr class="my-1">
           <td class=" ">{{fm.title.label }}</td>
@@ -49,7 +49,7 @@
       </tbody>
 
     </table>
-
+    
   </form>
 </div>
 

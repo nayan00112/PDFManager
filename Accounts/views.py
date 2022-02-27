@@ -34,7 +34,7 @@ def signup(request):
             else:
                 user = User.objects.create_user(first_name = name, username = username, email = email, password = password1)
                 user.save() 
-                messages.info(request, 'User Created')
+                messages.info(request, 'User Created. Now go to Signin')
                 return render(request, 'accounts/signup.html')
         else:
             messages.info(request, '''Password dosen't metch''')

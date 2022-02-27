@@ -20,25 +20,33 @@ def Home(request):
         data.save()
         sucess_message = 'Successfully saved ' + title
         messages.info(request, sucess_message)
+        err_message = 'Err to save. try again. ' + title
+        messages.info(request, err_message)
     else:
         fm = Sub_Input()
     return render(request, 'Home/Home.html', {'fm':fm})
 
 def AllSub(request):
     data = Subject_MOdel_Class.objects.all()
-    return render(request, 'Home/subjects.html', {'data': data})
+    Alls = 'bg-sky-500'
+    return render(request, 'Home/subjects.html', {'data': data, 'Alls': Alls})
 def Physics(request):
     data = Subject_MOdel_Class.objects.filter(subject='physics')
-    return render(request, 'Home/subjects.html', {'data': data})
+    phy = 'bg-sky-500'
+    return render(request, 'Home/subjects.html', {'data': data, 'phy': phy})
 def Mathematics_1(request):
     data = Subject_MOdel_Class.objects.filter(subject='mathematic_1')
-    return render(request, 'Home/subjects.html', {'data': data})
+    math = 'bg-sky-500'
+    return render(request, 'Home/subjects.html', {'data': data, 'math': math})
 def BME(request):
     data = Subject_MOdel_Class.objects.filter(subject='bme')
-    return render(request, 'Home/subjects.html', {'data': data})
+    bme = 'bg-sky-500'
+    return render(request, 'Home/subjects.html', {'data': data, 'bme': bme})
 def ES(request):
     data = Subject_MOdel_Class.objects.filter(subject='es')
-    return render(request, 'Home/subjects.html', {'data': data})
+    es = 'bg-sky-500'
+    return render(request, 'Home/subjects.html', {'data': data, 'es': es})
 def Other(request):
     data = Subject_MOdel_Class.objects.filter(subject='other')
-    return render(request, 'Home/subjects.html', {'data': data})
+    other = 'bg-sky-500'
+    return render(request, 'Home/subjects.html', {'data': data, 'other': other})
