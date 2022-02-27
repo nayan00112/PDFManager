@@ -16,37 +16,36 @@ def Home(request):
         pdf_document = request.FILES['pdf_document']
         date = request.POST['date']
         discription = request.POST['discription']
-        data = Subject_MOdel_Class(title=title, subject=subject, pdf_document=pdf_document, date=date, discription=discription)
+        userhid = request.user.username
+        data = Subject_MOdel_Class(title=title, subject=subject, pdf_document=pdf_document, date=date, discription=discription, userhid=userhid)
         data.save()
         sucess_message = 'Successfully saved ' + title
         messages.info(request, sucess_message)
-        err_message = 'Err to save. try again. ' + title
-        messages.info(request, err_message)
     else:
         fm = Sub_Input()
     return render(request, 'Home/Home.html', {'fm':fm})
 
 def AllSub(request):
-    data = Subject_MOdel_Class.objects.all()
+    data = Subject_MOdel_Class.objects.filter(userhid=request.user.username)
     Alls = 'bg-sky-500'
     return render(request, 'Home/subjects.html', {'data': data, 'Alls': Alls})
 def Physics(request):
-    data = Subject_MOdel_Class.objects.filter(subject='physics')
+    data = Subject_MOdel_Class.objects.filter(subject='physics', userhid=request.user.username)
     phy = 'bg-sky-500'
     return render(request, 'Home/subjects.html', {'data': data, 'phy': phy})
 def Mathematics_1(request):
-    data = Subject_MOdel_Class.objects.filter(subject='mathematic_1')
+    data = Subject_MOdel_Class.objects.filter(subject='mathematic_1', userhid=request.user.username)
     math = 'bg-sky-500'
     return render(request, 'Home/subjects.html', {'data': data, 'math': math})
 def BME(request):
-    data = Subject_MOdel_Class.objects.filter(subject='bme')
+    data = Subject_MOdel_Class.objects.filter(subject='bme', userhid=request.user.username)
     bme = 'bg-sky-500'
     return render(request, 'Home/subjects.html', {'data': data, 'bme': bme})
 def ES(request):
-    data = Subject_MOdel_Class.objects.filter(subject='es')
+    data = Subject_MOdel_Class.objects.filter(subject='es', userhid=request.user.username)
     es = 'bg-sky-500'
     return render(request, 'Home/subjects.html', {'data': data, 'es': es})
 def Other(request):
-    data = Subject_MOdel_Class.objects.filter(subject='other')
+    data = Subject_MOdel_Class.objects.filter(subject='other', userhid=request.user.username)
     other = 'bg-sky-500'
     return render(request, 'Home/subjects.html', {'data': data, 'other': other})

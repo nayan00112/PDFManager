@@ -18,3 +18,4 @@ class Sub_Input(forms.Form):
     pdf_document = forms.FileField(required=True)
     date = forms.DateField(required=True, widget=DateInput())
     discription = forms.CharField(required=True)
+    userhid = forms.CharField( max_length=50, required=True, widget=forms.HiddenInput())
